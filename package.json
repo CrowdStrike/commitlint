@@ -1,0 +1,53 @@
+{
+  "name": "@crowdstrike/commitlint",
+  "version": "1.0.0",
+  "description": "commitlint settings for CrowdStrike",
+  "bin": {
+    "commitlint": "bin/index.js"
+  },
+  "main": "src",
+  "files": [
+    "bin",
+    "src"
+  ],
+  "scripts": {
+    "lint:git": "node bin",
+    "lint:js": "eslint .",
+    "lint:md": "remark -f README.md",
+    "test": "yarn lint:git && yarn lint:js && yarn lint:md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CrowdStrike/commitlint.git"
+  },
+  "keywords": [
+    "conventional-changelog"
+  ],
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrowdStrike/commitlint/issues"
+  },
+  "homepage": "https://github.com/CrowdStrike/commitlint#readme",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "dependencies": {
+    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/format": "^8.1.0",
+    "@commitlint/lint": "^8.1.0",
+    "@commitlint/load": "^8.1.0",
+    "@commitlint/read": "^8.1.0",
+    "commitlint-format-junit": "^1.1.4",
+    "debug": "^4.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-crowdstrike": "^1.0.0",
+    "eslint-config-crowdstrike-node": "^1.0.0",
+    "eslint-plugin-json-files": "0.7.0",
+    "eslint-plugin-node": "^9.1.0",
+    "remark-cli": "^7.0.0",
+    "remark-preset-lint-crowdstrike": "^1.0.0"
+  }
+}
