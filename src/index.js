@@ -7,6 +7,7 @@ const { format } = require('@commitlint/format');
 const formatJunit = require('commitlint-format-junit');
 const {
   getCurrentBranch,
+  getCurrentCommit,
   getCommitSinceLastRelease,
   getLastCommitMessage,
 } = require('../src/git');
@@ -78,28 +79,38 @@ function _format(payload) {
   return _format(payload, { verbose: true });
 }
 
+async function succeedWithLatestCommit() {
+  let message = await getLastCommitMessage();
+
+  // need at least one test to satisfy junit parsers
+  return _format({
+    valid: true,
+    errorCount: 0,
+    warningCount: 0,
+    results: [{
+      valid: true,
+      input: message,
+      errors: [],
+      warnings: [],
+    }],
+  });
+}
+
 async function commitlint() {
   let currentBranch = await getCurrentBranch();
   if (currentBranch === 'master') {
-    let message = await getLastCommitMessage();
-
-    // need at least one test to satisfy junit parsers
-    return _format({
-      valid: true,
-      errorCount: 0,
-      warningCount: 0,
-      results: [{
-        valid: true,
-        input: message,
-        errors: [],
-        warnings: [],
-      }],
-    });
+    return await succeedWithLatestCommit();
   }
 
-  let commit = await getCommitSinceLastRelease();
+  let currentCommit = await getCurrentCommit();
+  let commitSinceLastRelease = await getCommitSinceLastRelease();
 
-  let formatted = await runCommitLint(commit);
+  if (currentCommit === commitSinceLastRelease) {
+    // You might be on a detached HEAD, but still the latest master commit
+    return await succeedWithLatestCommit();
+  }
+
+  let formatted = await runCommitLint(commitSinceLastRelease);
 
   return formatted;
 }
