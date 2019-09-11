@@ -14,6 +14,7 @@
     "lint:git": "./bin/index.js",
     "lint:js": "eslint .",
     "lint:md": "remark -f README.md",
+    "release": "standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint:git && yarn lint:js && yarn lint:md"
   },
   "repository": {
@@ -49,6 +50,7 @@
     "eslint-plugin-node": "^9.1.0",
     "remark-cli": "^7.0.0",
     "remark-preset-lint-crowdstrike": "^1.0.0",
-    "renovate-config-standard": "^2.0.0"
+    "renovate-config-standard": "^2.0.0",
+    "standard-version": "^7.0.0"
   }
 }
