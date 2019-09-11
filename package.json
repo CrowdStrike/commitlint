@@ -11,7 +11,7 @@
     "src"
   ],
   "scripts": {
-    "lint:git": "node bin",
+    "lint:git": "./bin/index.js",
     "lint:js": "eslint .",
     "lint:md": "remark -f README.md",
     "test": "yarn lint:git && yarn lint:js && yarn lint:md"
