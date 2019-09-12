@@ -29,6 +29,10 @@ async function runCommitLint(commit) {
 
   let messages = await read({ from: commit });
 
+  if (messages[0] && messages[0].startsWith('Merge ')) {
+    messages.shift();
+  }
+
   let reports = await Promise.all(messages.map(message => {
     return lint(message, rules, opts);
   }));
