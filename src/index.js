@@ -107,7 +107,14 @@ async function commitlint() {
   }
 
   let currentCommit = await getCurrentCommit();
-  let commitSinceLastRelease = await getCommitSinceLastRelease();
+
+  let commitSinceLastRelease;
+  try {
+    commitSinceLastRelease = await getCommitSinceLastRelease();
+  } catch (err) {
+    // can't determine where you branched from, so succeed
+    return await succeedWithLatestCommit();
+  }
 
   if (currentCommit === commitSinceLastRelease) {
     // You might be on a detached HEAD, but still the latest master commit
