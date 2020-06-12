@@ -6,6 +6,7 @@ const lint = require('@commitlint/lint');
 const { format } = require('@commitlint/format');
 const formatJunit = require('commitlint-format-junit');
 const {
+  getAttemptedCommitMessage,
   getCurrentBranch,
   getCurrentCommit,
   getCommitSinceLastRelease,
@@ -22,12 +23,12 @@ function doesReportMatchErrorSchema(report, schema) {
     && report.errors.every(error => schema.includes(error.name));
 }
 
-async function runCommitLint(commit) {
+async function runCommitLint(commit, message) {
   let { rules, parserPreset } = await load();
 
   let opts = parserPreset ? { parserOpts: parserPreset.parserOpts } : {};
 
-  let messages = await read({ from: commit });
+  let messages = (commit && !message) ? await read({ from: commit }) : [message];
 
   if (messages[0] && messages[0].startsWith('Merge ')) {
     messages.shift();
@@ -114,6 +115,13 @@ async function commitlint() {
   } catch (err) {
     // can't determine where you branched from, so succeed
     return await succeedWithLatestCommit();
+  }
+
+  let lastCommitMessage = await getLastCommitMessage();
+  let attemptedCommitMessage = await getAttemptedCommitMessage();
+
+  if (attemptedCommitMessage && attemptedCommitMessage !== lastCommitMessage) {
+    return await runCommitLint(null, attemptedCommitMessage);
   }
 
   if (currentCommit === commitSinceLastRelease) {
