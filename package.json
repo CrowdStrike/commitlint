@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "lint:git": "./bin/index.js",
-    "lint:js": "eslint .",
+    "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f README.md",
     "release": "standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint:git && yarn lint:js && yarn lint:md"
