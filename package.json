@@ -43,7 +43,7 @@
     "debug": "^4.1.1"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^7.0.0",
     "eslint-config-crowdstrike": "^2.0.0",
     "eslint-config-crowdstrike-node": "^2.0.0",
     "eslint-plugin-json-files": "0.8.1",
