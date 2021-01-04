@@ -1,8 +1,8 @@
 'use strict';
 
-const load = require('@commitlint/load');
-const read = require('@commitlint/read');
-const lint = require('@commitlint/lint');
+const load = require('@commitlint/load').default;
+const read = require('@commitlint/read').default;
+const lint = require('@commitlint/lint').default;
 const { format } = require('@commitlint/format');
 const formatJunit = require('commitlint-format-junit');
 const {
