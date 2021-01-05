@@ -14,8 +14,7 @@
     "lint:git": "./bin/index.js",
     "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f README.md",
-    "release": "standard-version",
-    "test": "yarn lint:git && yarn lint:js && yarn lint:md"
+    "release": "standard-version"
   },
   "standard-version": {
     "scripts": {
