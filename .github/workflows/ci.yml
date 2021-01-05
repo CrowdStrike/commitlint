@@ -34,9 +34,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-        # otherwise it is missing locally
-        ref: ${{ github.base_ref }}
-    - run: git checkout ${{ github.head_ref }}
+        ref: ${{ github.event.pull_request.head.sha }}
+    # grab default branch to calculate branch point to know when to stop linting
+    - if: ${{ github.base_ref }}
+      run: git branch ${{ github.base_ref }} origin/${{ github.base_ref }}
 
     - uses: actions/setup-node@v2
       with:
