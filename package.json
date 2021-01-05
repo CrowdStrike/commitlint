@@ -39,11 +39,11 @@
     "node": ">=10.12"
   },
   "dependencies": {
-    "@commitlint/config-conventional": "^9.0.0",
-    "@commitlint/format": "^9.0.0",
-    "@commitlint/lint": "^9.0.0",
-    "@commitlint/load": "^9.0.0",
-    "@commitlint/read": "^9.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/format": "^11.0.0",
+    "@commitlint/lint": "^11.0.0",
+    "@commitlint/load": "^11.0.0",
+    "@commitlint/read": "^11.0.0",
     "commitlint-format-junit": "^1.1.4",
     "debug": "^4.1.1"
   },
