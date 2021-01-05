@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/CrowdStrike/commitlint/compare/v1.0.4...v2.0.0) (2021-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to node 10
+
+### Features
+
+* update to commitlint 9 ([df4d7fc](https://github.com/CrowdStrike/commitlint/commit/df4d7fc2a374c21e72fe75513d983ae04563b75c))
+
+
+### Bug Fixes
+
+* use lame new import style ([75f26c3](https://github.com/CrowdStrike/commitlint/commit/75f26c38e228c65a1621b7c9eef9aa9b8a6f33c4))
+
+
+* bump to node 10 ([105be46](https://github.com/CrowdStrike/commitlint/commit/105be46c41c9bacab3c01c4f0a25c786e4dd44d5))
+
 ### [1.0.4](https://github.com/CrowdStrike/commitlint/compare/v1.0.3...v1.0.4) (2019-09-15)
 
 
