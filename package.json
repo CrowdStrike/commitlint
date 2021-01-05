@@ -19,7 +19,7 @@
   },
   "standard-version": {
     "scripts": {
-      "posttag": "git push --follow-tags --atomic && npm publish"
+      "posttag": "git push --follow-tags --atomic"
     }
   },
   "repository": {
