@@ -45,7 +45,8 @@
     "@commitlint/load": "^11.0.0",
     "@commitlint/read": "^11.0.0",
     "commitlint-format-junit": "^1.1.4",
-    "debug": "^4.1.1"
+    "debug": "^4.1.1",
+    "execa": "^5.0.0"
   },
   "devDependencies": {
     "chai": "^4.3.0",
@@ -55,7 +56,6 @@
     "eslint-plugin-json-files": "0.8.1",
     "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-node": "^11.0.0",
-    "execa": "^5.0.0",
     "git-fixtures": "^3.0.3",
     "mocha": "^8.3.0",
     "mocha-helpers": "^5.1.0",
