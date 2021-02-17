@@ -1,21 +1,25 @@
 'use strict';
 
-const { exec } = require('./cp');
+const { spawn } = require('./cp');
+
+async function git() {
+  return (await spawn('git', [...arguments])).stdout;
+}
 
 async function getCurrentBranch() {
-  return await exec('git rev-parse --abbrev-ref HEAD');
+  return await git('rev-parse', '--abbrev-ref', 'HEAD');
 }
 
 async function getCurrentCommit() {
-  return await exec('git rev-parse HEAD');
+  return await git('rev-parse', 'HEAD');
 }
 
 async function getCommitSinceBranchPoint() {
-  return await exec('git merge-base master HEAD');
+  return await git('merge-base', 'master', 'HEAD');
 }
 
 async function getLastCommitMessage() {
-  return await exec('git log -1 --pretty=%B');
+  return await git('log', '-1', '--pretty=%B');
 }
 
 module.exports = {
