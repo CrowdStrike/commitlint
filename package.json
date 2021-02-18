@@ -11,7 +11,7 @@
     "src"
   ],
   "scripts": {
-    "lint:git": "./bin/index.js",
+    "lint:git": "commitlint",
     "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f README.md",
     "release": "standard-version",
@@ -50,6 +50,7 @@
     "yargs": "^16.2.0"
   },
   "devDependencies": {
+    "@crowdstrike/commitlint": "file:",
     "chai": "^4.3.0",
     "eslint": "^7.0.0",
     "eslint-config-crowdstrike": "^3.0.0",
