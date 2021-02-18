@@ -8,6 +8,7 @@ const commitlint = require('../src');
 const defaultBranch = 'master';
 
 const { argv } = require('yargs')
+  .usage('$0', require('../package').description)
   .options({
     'default-branch': {
       type: 'string',
