@@ -14,7 +14,8 @@
     "lint:git": "./bin/index.js",
     "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f README.md",
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "mocha --recursive"
   },
   "standard-version": {
     "scripts": {
@@ -47,11 +48,17 @@
     "debug": "^4.1.1"
   },
   "devDependencies": {
+    "chai": "^4.3.0",
     "eslint": "^7.0.0",
     "eslint-config-crowdstrike": "^3.0.0",
     "eslint-config-crowdstrike-node": "^3.0.0",
     "eslint-plugin-json-files": "0.8.1",
+    "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-node": "^11.0.0",
+    "execa": "^5.0.0",
+    "git-fixtures": "^3.0.3",
+    "mocha": "^8.3.0",
+    "mocha-helpers": "^5.1.0",
     "remark-cli": "^9.0.0",
     "remark-preset-lint-crowdstrike": "^2.0.0",
     "renovate-config-standard": "^2.0.0",
