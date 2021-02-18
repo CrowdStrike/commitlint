@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/CrowdStrike/commitlint/compare/v2.0.1...v2.0.2) (2021-02-18)
+
+
+### Bug Fixes
+
+* use execa ([35f73ae](https://github.com/CrowdStrike/commitlint/commit/35f73ae5e8ad53f770d7b08cc11830ac4714677c))
+
 ### [2.0.1](https://github.com/CrowdStrike/commitlint/compare/v2.0.0...v2.0.1) (2021-01-05)
 
 
