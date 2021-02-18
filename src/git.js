@@ -10,7 +10,7 @@ async function getCurrentCommit() {
   return await exec('git rev-parse HEAD');
 }
 
-async function getCommitSinceLastRelease() {
+async function getCommitSinceBranchPoint() {
   return await exec('git merge-base master HEAD');
 }
 
@@ -21,6 +21,6 @@ async function getLastCommitMessage() {
 module.exports = {
   getCurrentBranch,
   getCurrentCommit,
-  getCommitSinceLastRelease,
+  getCommitSinceBranchPoint,
   getLastCommitMessage,
 };
