@@ -8,7 +8,7 @@ const formatJunit = require('commitlint-format-junit');
 const {
   getCurrentBranch,
   getCurrentCommit,
-  getCommitSinceLastRelease,
+  getCommitSinceBranchPoint,
   getLastCommitMessage,
 } = require('../src/git');
 
@@ -108,20 +108,20 @@ async function commitlint() {
 
   let currentCommit = await getCurrentCommit();
 
-  let commitSinceLastRelease;
+  let commitSinceBranchPoint;
   try {
-    commitSinceLastRelease = await getCommitSinceLastRelease();
+    commitSinceBranchPoint = await getCommitSinceBranchPoint();
   } catch (err) {
     // can't determine where you branched from, so succeed
     return await succeedWithLatestCommit();
   }
 
-  if (currentCommit === commitSinceLastRelease) {
+  if (currentCommit === commitSinceBranchPoint) {
     // You might be on a detached HEAD, but still the latest master commit
     return await succeedWithLatestCommit();
   }
 
-  let formatted = await runCommitLint(commitSinceLastRelease);
+  let formatted = await runCommitLint(commitSinceBranchPoint);
 
   return formatted;
 }
