@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/CrowdStrike/commitlint/compare/v2.1.1...v2.2.0) (2021-02-18)
+
+
+### Features
+
+* add usage ([bddf04b](https://github.com/CrowdStrike/commitlint/commit/bddf04b195b8cc0d0930fd0745744279c71c5042))
+
 ### [2.1.1](https://github.com/CrowdStrike/commitlint/compare/v2.1.0...v2.1.1) (2021-02-18)
 
 ## [2.1.0](https://github.com/CrowdStrike/commitlint/compare/v2.0.2...v2.1.0) (2021-02-18)
