@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/CrowdStrike/commitlint/compare/v2.0.2...v2.1.0) (2021-02-18)
+
+
+### Features
+
+* support custom default branch ([7c14947](https://github.com/CrowdStrike/commitlint/commit/7c14947d2eb164067f0f4d25486fca87a28306bb))
+
 ### [2.0.2](https://github.com/CrowdStrike/commitlint/compare/v2.0.1...v2.0.2) (2021-02-18)
 
 
