@@ -100,9 +100,11 @@ async function succeedWithLatestCommit() {
   });
 }
 
-async function commitlint() {
+async function commitlint({
+  defaultBranch,
+}) {
   let currentBranch = await getCurrentBranch();
-  if (currentBranch === 'master') {
+  if (currentBranch === defaultBranch) {
     return await succeedWithLatestCommit();
   }
 
@@ -110,7 +112,7 @@ async function commitlint() {
 
   let commitSinceBranchPoint;
   try {
-    commitSinceBranchPoint = await getCommitSinceBranchPoint();
+    commitSinceBranchPoint = await getCommitSinceBranchPoint(defaultBranch);
   } catch (err) {
     // can't determine where you branched from, so succeed
     return await succeedWithLatestCommit();

@@ -14,8 +14,8 @@ async function getCurrentCommit() {
   return await git('rev-parse', 'HEAD');
 }
 
-async function getCommitSinceBranchPoint() {
-  return await git('merge-base', 'master', 'HEAD');
+async function getCommitSinceBranchPoint(branch) {
+  return await git('merge-base', branch, 'HEAD');
 }
 
 async function getLastCommitMessage() {
