@@ -14,11 +14,13 @@
     "lint:git": "commitlint",
     "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f README.md",
-    "release": "standard-version",
+    "release": "standard-version --commit-all",
     "test": "mocha --recursive"
   },
   "standard-version": {
     "scripts": {
+      "prerelease": "yargs-help-output README.md --npm-script-name lint:git",
+      "precommit": "git add README.md",
       "posttag": "git push --follow-tags --atomic"
     }
   },
@@ -64,6 +66,7 @@
     "remark-cli": "^9.0.0",
     "remark-preset-lint-crowdstrike": "^2.0.0",
     "renovate-config-standard": "^2.0.0",
-    "standard-version": "^9.0.0"
+    "standard-version": "^9.0.0",
+    "yargs-help-output": "^1.0.4"
   }
 }
