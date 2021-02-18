@@ -5,4 +5,13 @@
 [commitlint](https://commitlint.js.org) settings for [CrowdStrike](https://www.crowdstrike.com)
 
 <!-- CODEGEN_CLI_HELP -->
+
+```
+Options:
+  --help            Show help                                          [boolean]
+  --version         Show version number                                [boolean]
+  --default-branch  Use a different branch point other than master
+                                                    [string] [default: "master"]
+```
+
 <!-- CODEGEN_CLI_HELP -->
