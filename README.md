@@ -7,6 +7,10 @@
 <!-- CODEGEN_CLI_HELP -->
 
 ```
+commitlint
+
+commitlint settings for CrowdStrike
+
 Options:
   --help            Show help                                          [boolean]
   --version         Show version number                                [boolean]
