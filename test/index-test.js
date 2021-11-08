@@ -40,8 +40,7 @@ describe(function() {
       expect(err.stdout.trim()).to.equal(`⧗   input: CHORE: foo
 ✖   type must be lower-case [type-case]
 
-✖   found 1 problems, 0 warnings
-ⓘ   Get help: undefined`);
+✖   found 1 problems, 0 warnings`);
 
       expect(err.exitCode).to.equal(1);
     });
@@ -90,8 +89,7 @@ describe(function() {
 ⧗   input: CHORE: foo
 ✖   type must be lower-case [type-case]
 
-✖   found 1 problems, 0 warnings
-ⓘ   Get help: undefined`);
+✖   found 1 problems, 0 warnings`);
 
       expect(err.exitCode).to.equal(1);
     });
@@ -126,8 +124,7 @@ describe(function() {
       expect(err.stdout.trim()).to.equal(`⧗   input: CHORE: foo
 ✖   type must be lower-case [type-case]
 
-✖   found 1 problems, 0 warnings
-ⓘ   Get help: undefined`);
+✖   found 1 problems, 0 warnings`);
 
       expect(err.exitCode).to.equal(1);
     });
