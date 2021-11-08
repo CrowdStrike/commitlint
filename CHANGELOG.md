@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.3](https://github.com/CrowdStrike/commitlint/compare/v4.0.2...v4.0.3) (2021-11-08)
+
+
+### Bug Fixes
+
+* **deps:** update commitlint monorepo and fix failing tests ([29144cf](https://github.com/CrowdStrike/commitlint/commit/29144cf97dc29feb3780c91c5f698067d7b848fd))
+
 ### [4.0.2](https://github.com/CrowdStrike/commitlint/compare/v4.0.1...v4.0.2) (2021-07-26)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@crowdstrike/commitlint",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "commitlint settings for CrowdStrike",
   "bin": {
     "commitlint": "bin/index.js"
