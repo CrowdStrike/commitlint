@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/CrowdStrike/commitlint/compare/v4.0.4...v5.0.0) (2022-01-05)
+
+
+### Bug Fixes
+
+* **deps:** update commitlint monorepo to v16 ([0bcca4a](https://github.com/CrowdStrike/commitlint/commit/0bcca4af7ea13a27a8c7b14f58c5bab584e0cdc5))
+
 ### [4.0.4](https://github.com/CrowdStrike/commitlint/compare/v4.0.3...v4.0.4) (2021-11-30)
 
 
