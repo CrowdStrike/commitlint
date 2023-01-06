@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/CrowdStrike/commitlint/compare/v5.0.0...v6.0.0) (2023-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* use node 14
+
+### Bug Fixes
+
+* **deps:** update commitlint monorepo to v17 ([de7762c](https://github.com/CrowdStrike/commitlint/commit/de7762c353d58a20378add401cf9c4be2a102171))
+
+
+* use node 14 ([979b46c](https://github.com/CrowdStrike/commitlint/commit/979b46c271838dc63dcefb859a49add46c3aab9e))
+
 ## [5.0.0](https://github.com/CrowdStrike/commitlint/compare/v4.0.4...v5.0.0) (2022-01-05)
 
 
