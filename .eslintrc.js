@@ -13,6 +13,9 @@ module.exports = {
       },
       plugins: ['mocha'],
       extends: 'plugin:mocha/recommended',
+      rules: {
+        'mocha/no-empty-description': 'off',
+      },
     },
   ],
 };
