@@ -3978,10 +3978,10 @@ split@^1.0.0:
   dependencies:
     through "2"
 
-standard-node-template@3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/standard-node-template/-/standard-node-template-3.2.1.tgz#86b4d61f1a5ddb882e96479b82d6fbcf7bcbde9c"
-  integrity sha512-1T8qkdiVU093DaJuel3fusBMLoR5q6+CXbQ8kVfFbu4+OWVgQ+SUMupJooIxfgP8tp0D5jUmqr4PW2ILz5ZxMw==
+standard-node-template@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/standard-node-template/-/standard-node-template-4.0.1.tgz#059a15d37c89a6006c5cd23e0c110f0dd46b3093"
+  integrity sha512-hCPBmRiz82IjhqSFbjNmByfzZAB1SKN61AeQObHRO73/mFQ/shzR3DcHG2oPrqfvM7FFnrDErWE1dF49nl4kWQ==
 
 standard-version@^9.1.0:
   version "9.2.0"
