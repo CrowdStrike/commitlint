@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/CrowdStrike/commitlint/compare/v6.0.0...v7.0.0) (2023-07-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump node 16
+
+* bump node 16 ([0bca4ff](https://github.com/CrowdStrike/commitlint/commit/0bca4ff0ef57b695307408ef441cab675468d225))
+
 ## [6.0.0](https://github.com/CrowdStrike/commitlint/compare/v5.0.0...v6.0.0) (2023-01-06)
 
 
