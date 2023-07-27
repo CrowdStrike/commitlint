@@ -2784,10 +2784,10 @@ minimist@^1.1.3, minimist@^1.2.5:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
   integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
-mocha-helpers@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/mocha-helpers/-/mocha-helpers-7.0.0.tgz#6ba51c01b857e2fbcada461c2d9de3164f9e0446"
-  integrity sha512-tBC4P2c+sZ4MEspVec6KbxI3lILquYb/C1dAk6XrAVWg8He20N9IuqCSuKFDkI3Ae5xe6dmG1443L2VHWPh6DA==
+mocha-helpers@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/mocha-helpers/-/mocha-helpers-8.0.0.tgz#ac745ed5b1d994ef790af723dbe41463297d4337"
+  integrity sha512-YkCfhkAkKS+GM6LmDo+lZ7lnMjkA/nJnDGuBMnnwKc8hH7Cl1BV/3mfbxMI/G1GyODFD/iJIbhY7sv52bzhr8A==
   dependencies:
     callsites "^3.0.0"
     commondir "^1.0.1"
