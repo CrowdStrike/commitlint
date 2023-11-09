@@ -31,7 +31,7 @@ describe(function() {
     await execa('git', ['commit', '-m', 'chore: add commitlint.config.js'], { cwd: tmpPath });
   });
 
-  describe('master branch', function() {
+  describe('default branch', function() {
     it('fails when no good commits on branch', async function() {
       await execa('git', ['branch', 'foo'], { cwd: tmpPath });
       await execa('git', ['checkout', 'foo'], { cwd: tmpPath });
