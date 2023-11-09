@@ -1,9 +1,10 @@
 'use strict';
 
 const debug = require('./debug');
-const execa = require('execa');
 
-function spawn() {
+async function spawn() {
+  const { execa } = await import('execa');
+
   debug(...arguments);
 
   let ps = execa(...arguments);
