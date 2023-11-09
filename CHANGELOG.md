@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.1](https://github.com/CrowdStrike/commitlint/compare/v8.0.0...v8.0.1) (2023-11-09)
+
+
+### Bug Fixes
+
+* support esm execa ([ead90e3](https://github.com/CrowdStrike/commitlint/commit/ead90e3f9b0b3813d649472234eb41a97d78b7a6))
+* **deps:** update dependency execa to v8 ([2ad9966](https://github.com/CrowdStrike/commitlint/commit/2ad9966b84251fc3401ee3884fc2df30eb6b707d))
+
 ## [8.0.0](https://github.com/CrowdStrike/commitlint/compare/v7.0.0...v8.0.0) (2023-11-09)
 
 
