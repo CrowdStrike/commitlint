@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/CrowdStrike/commitlint/compare/v7.0.0...v8.0.0) (2023-11-09)
+
+
+### Bug Fixes
+
+* **deps:** update commitlint monorepo to v18 ([12a61e2](https://github.com/CrowdStrike/commitlint/commit/12a61e2e7799c55bbc787b345b1fb9de4ac07ca9))
+
 ## [7.0.0](https://github.com/CrowdStrike/commitlint/compare/v6.0.0...v7.0.0) (2023-07-27)
 
 
