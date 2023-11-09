@@ -48,7 +48,7 @@
     "@commitlint/read": "^18.0.0",
     "commitlint-format-junit": "^1.1.4",
     "debug": "^4.1.1",
-    "execa": "^5.0.0",
+    "execa": "^8.0.0",
     "yargs": "^17.0.0"
   },
   "devDependencies": {

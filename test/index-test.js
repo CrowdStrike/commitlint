@@ -3,13 +3,18 @@
 const { describe, it } = require('./helpers/mocha');
 const { expect } = require('./helpers/chai');
 const { gitInit } = require('git-fixtures');
-const execa = require('execa');
 const fs = require('fs');
 const { promisify } = require('util');
 const copyFile = promisify(fs.copyFile);
 const path = require('path');
 
 const bin = require.resolve('../bin');
+
+async function execa() {
+  const { execa } = await import('execa');
+
+  return execa(...arguments);
+}
 
 describe(function() {
   let tmpPath;
