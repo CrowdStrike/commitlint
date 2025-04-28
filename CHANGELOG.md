@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.2](https://github.com/CrowdStrike/commitlint/compare/v8.0.1...v8.0.2) (2025-04-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency execa to v9 ([547b9ea](https://github.com/CrowdStrike/commitlint/commit/547b9ea279cc0d5f84595fb120a9dfe3a90b8896))
+
 ### [8.0.1](https://github.com/CrowdStrike/commitlint/compare/v8.0.0...v8.0.1) (2023-11-09)
 
 
