@@ -1,9 +1,5 @@
 'use strict';
 
-const load = require('@commitlint/load').default;
-const read = require('@commitlint/read').default;
-const lint = require('@commitlint/lint').default;
-const { format } = require('@commitlint/format');
 const formatJunit = require('commitlint-format-junit');
 const {
   getCurrentBranch,
@@ -23,6 +19,10 @@ function doesReportMatchErrorSchema(report, schema) {
 }
 
 async function runCommitLint(commit) {
+  const { default: load } = await import('@commitlint/load');
+  const { default: read } = await import('@commitlint/read');
+  const { default: lint } = await import('@commitlint/lint');
+
   let { rules, parserPreset } = await load();
 
   let opts = parserPreset ? { parserOpts: parserPreset.parserOpts } : {};
@@ -64,7 +64,7 @@ async function runCommitLint(commit) {
     process.exitCode = 1;
   }
 
-  return _format({
+  return await _format({
     valid: !didFailLinting,
     errorCount,
     warningCount: 0,
@@ -72,7 +72,9 @@ async function runCommitLint(commit) {
   });
 }
 
-function _format(payload) {
+async function _format(payload) {
+  const { default: format } = await import('@commitlint/format');
+
   let _format;
   if (process.env.COMMITLINT_REPORTER === 'junit') {
     _format = formatJunit;
