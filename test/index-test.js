@@ -105,6 +105,7 @@ describe(function() {
       let { stdout } = await execa(bin, { cwd: tmpPath });
 
       expect(stdout).to.equal(`⧗   input: CHORE: foo
+
 ✔   found 0 problems, 0 warnings`);
     });
   });
@@ -140,6 +141,7 @@ describe(function() {
       let { stdout } = await execa(bin, ['--default-branch', 'foo'], { cwd: tmpPath });
 
       expect(stdout).to.equal(`⧗   input: CHORE: foo
+
 ✔   found 0 problems, 0 warnings`);
     });
   });
