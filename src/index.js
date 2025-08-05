@@ -14,7 +14,7 @@ const IGNORED_ERROR_REPORT_SCHEMA = [
 ];
 
 function doesReportMatchErrorSchema(report, schema) {
-  return report.errors.length === schema.length
+  return report.errors.length > 0
     && report.errors.every(error => schema.includes(error.name));
 }
 
@@ -50,15 +50,19 @@ async function runCommitLint(commit) {
       hasErrorReports = true;
       orderedValidAndErrorReports.push(report);
       errorCount++;
+    } else {
+      orderedValidAndErrorReports.push({
+        ...report,
+        valid: true,
+        errors: [],
+        warnings: [],
+      });
     }
   }
 
-  let shouldRemoveIgnoredErrors = hasErrorReports || hasValidReports;
   let didFailLinting = hasErrorReports || !hasValidReports;
 
-  if (shouldRemoveIgnoredErrors) {
-    reports = orderedValidAndErrorReports;
-  }
+  reports = orderedValidAndErrorReports;
 
   if (didFailLinting) {
     process.exitCode = 1;
