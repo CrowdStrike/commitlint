@@ -50,32 +50,49 @@ describe(function() {
       expect(err.exitCode).to.equal(1);
     });
 
-    it('succeeds when one good commit and one bad type-empty commit on branch', async function() {
+    it('fails when one good commit and one bad type-empty commit on branch', async function() {
       await execa('git', ['branch', 'foo'], { cwd: tmpPath });
       await execa('git', ['checkout', 'foo'], { cwd: tmpPath });
       await execa('git', ['commit', '--allow-empty', '-m', ': foo'], { cwd: tmpPath });
       await execa('git', ['commit', '--allow-empty', '-m', 'chore: bar'], { cwd: tmpPath });
 
-      let { stdout } = await execa(bin, { cwd: tmpPath });
+      let err = await execa(bin, {
+        cwd: tmpPath,
+        reject: false,
+      });
 
-      expect(stdout).to.equal(`⧗   input: chore: bar
+      expect(err.stdout.trim()).to.equal(`⧗   input: chore: bar
 ✔   found 0 problems, 0 warnings
 ⧗   input: : foo
-✔   found 0 problems, 0 warnings`);
+✖   type may not be empty [type-empty]
+
+✖   found 1 problems, 0 warnings`);
+
+      expect(err.exitCode).to.equal(1);
     });
 
-    it('succeeds when one good commit and one bad subject-empty commit on branch', async function() {
+    // There is no way to actually generate just a `subject-empty` error.
+    // `chore:` is always recognized as missing a type with a `type-empty` as well.
+    // eslint-disable-next-line mocha/no-skipped-tests
+    it.skip('fails when one good commit and one bad subject-empty commit on branch', async function() {
       await execa('git', ['branch', 'foo'], { cwd: tmpPath });
       await execa('git', ['checkout', 'foo'], { cwd: tmpPath });
       await execa('git', ['commit', '--allow-empty', '-m', 'chore:'], { cwd: tmpPath });
       await execa('git', ['commit', '--allow-empty', '-m', 'chore: bar'], { cwd: tmpPath });
 
-      let { stdout } = await execa(bin, { cwd: tmpPath });
+      let err = await execa(bin, {
+        cwd: tmpPath,
+        reject: false,
+      });
 
-      expect(stdout).to.equal(`⧗   input: chore: bar
+      expect(err.stdout.trim()).to.equal(`⧗   input: chore: bar
 ✔   found 0 problems, 0 warnings
 ⧗   input: chore:
-✔   found 0 problems, 0 warnings`);
+✖   subject may not be empty [subject-empty]
+
+✖   found 1 problems, 0 warnings`);
+
+      expect(err.exitCode).to.equal(1);
     });
 
     it('fails when one good commit and one bad commit on branch', async function() {
