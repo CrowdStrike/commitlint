@@ -18,7 +18,7 @@ function doesReportMatchErrorSchema(report, schema) {
     && report.errors.every(error => schema.includes(error.name));
 }
 
-async function runCommitLint(commit) {
+async function runCommitLint(commit, { shouldLintEveryCommit }) {
   const { default: load } = await import('@commitlint/load');
   const { default: read } = await import('@commitlint/read');
   const { default: lint } = await import('@commitlint/lint');
@@ -46,7 +46,7 @@ async function runCommitLint(commit) {
     if (report.valid) {
       hasValidReports = true;
       orderedValidAndErrorReports.push(report);
-    } else if (!doesReportMatchErrorSchema(report, IGNORED_ERROR_REPORT_SCHEMA)) {
+    } else if (shouldLintEveryCommit || !doesReportMatchErrorSchema(report, IGNORED_ERROR_REPORT_SCHEMA)) {
       hasErrorReports = true;
       orderedValidAndErrorReports.push(report);
       errorCount++;
@@ -102,9 +102,7 @@ async function succeedWithLatestCommit() {
   });
 }
 
-async function commitlint({
-  defaultBranch,
-}) {
+async function commitlint({ defaultBranch, shouldLintEveryCommit } = {}) {
   let currentBranch = await getCurrentBranch();
   if (currentBranch === defaultBranch) {
     return await succeedWithLatestCommit();
@@ -125,8 +123,7 @@ async function commitlint({
     return await succeedWithLatestCommit();
   }
 
-  let formatted = await runCommitLint(commitSinceBranchPoint);
-
+  let formatted = await runCommitLint(commitSinceBranchPoint, { shouldLintEveryCommit });
   return formatted;
 }
 

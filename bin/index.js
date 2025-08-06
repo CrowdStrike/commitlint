@@ -15,10 +15,18 @@ const { argv } = require('yargs')
       default: defaultBranch,
       description: `Use a different branch point other than ${defaultBranch}`,
     },
+    'lint-every-commit': {
+      type: 'boolean',
+      default: false,
+      description: 'lint every commit including normally ignored errors',
+    },
   });
 
 (async () => {
-  let formatted = await commitlint(argv);
+  let formatted = await commitlint({
+    ...argv,
+    shouldLintEveryCommit: argv['lint-every-commit'],
+  });
 
   console.log(formatted);
 })();
