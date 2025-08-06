@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/CrowdStrike/commitlint/compare/v8.0.3...v8.1.0) (2025-08-06)
+
+
+### Features
+
+* add lint-every-commit flag to commitlint function ([958b552](https://github.com/CrowdStrike/commitlint/commit/958b5526fd434532730ba26388b4ef537442ef1e))
+
 ### [8.0.3](https://github.com/CrowdStrike/commitlint/compare/v8.0.2...v8.0.3) (2025-04-28)
 
 
