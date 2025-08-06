@@ -71,6 +71,40 @@ describe(function() {
       expect(err.exitCode).to.equal(1);
     });
 
+    it('succeeds when one good commit and one unconventional commit on branch', async function() {
+      await execa('git', ['branch', 'foo'], { cwd: tmpPath });
+      await execa('git', ['checkout', 'foo'], { cwd: tmpPath });
+      await execa('git', ['commit', '--allow-empty', '-m', 'foo'], { cwd: tmpPath });
+      await execa('git', ['commit', '--allow-empty', '-m', 'chore: bar'], { cwd: tmpPath });
+
+      let { stdout } = await execa(bin, { cwd: tmpPath });
+
+      expect(stdout).to.equal(`⧗   input: chore: bar
+✔   found 0 problems, 0 warnings`);
+    });
+
+    it('fails when lint-every-commit is enabled and branch has one good commit and one unconventional commit', async function() {
+      await execa('git', ['branch', 'foo'], { cwd: tmpPath });
+      await execa('git', ['checkout', 'foo'], { cwd: tmpPath });
+      await execa('git', ['commit', '--allow-empty', '-m', 'foo'], { cwd: tmpPath });
+      await execa('git', ['commit', '--allow-empty', '-m', 'chore: bar'], { cwd: tmpPath });
+
+      let err = await execa(bin, ['--lint-every-commit'], {
+        cwd: tmpPath,
+        reject: false,
+      });
+
+      expect(err.stdout.trim()).to.equal(`⧗   input: chore: bar
+✔   found 0 problems, 0 warnings
+⧗   input: foo
+✖   subject may not be empty [subject-empty]
+✖   type may not be empty [type-empty]
+
+✖   found 2 problems, 0 warnings`);
+
+      expect(err.exitCode).to.equal(1);
+    });
+
     // There is no way to actually generate just a `subject-empty` error.
     // `chore:` is always recognized as missing a type with a `type-empty` as well.
     // eslint-disable-next-line mocha/no-skipped-tests
