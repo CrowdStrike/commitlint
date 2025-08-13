@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/CrowdStrike/commitlint#readme",
   "engines": {
-    "node": ">=18.12"
+    "node": ">=20.9"
   },
   "dependencies": {
     "@commitlint/config-conventional": "^19.0.0",
