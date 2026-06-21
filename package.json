@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/CrowdStrike/commitlint.git"
+    "url": "git+https://github.com/CrowdStrike/commitlint.git"
   },
   "keywords": [
     "conventional-changelog"
