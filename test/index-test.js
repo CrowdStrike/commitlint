@@ -196,4 +196,45 @@ describe(function() {
 ✔   found 0 problems, 0 warnings`);
     });
   });
+
+  describe('plugins', function() {
+    beforeEach(async function() {
+      await copyFile(
+        path.resolve(__dirname, 'fixtures/commitlint.config.with-plugin.js'),
+        path.resolve(tmpPath, 'commitlint.config.js'),
+      );
+
+      await execa('git', ['add', '.'], { cwd: tmpPath });
+      await execa('git', ['commit', '-m', 'chore: overwrite commitlint.config.js with plugin fixture'], { cwd: tmpPath });
+    });
+
+    it('runs a custom rule registered via plugins, rather than throwing "Found rules without implementation"', async function() {
+      await execa('git', ['branch', 'foo'], { cwd: tmpPath });
+      await execa('git', ['checkout', 'foo'], { cwd: tmpPath });
+      await execa('git', ['commit', '--allow-empty', '-m', 'chore: bad'], { cwd: tmpPath });
+
+      let err = await execa(bin, {
+        cwd: tmpPath,
+        reject: false,
+      });
+
+      expect(err.stdout.trim()).to.equal(`⧗   input: chore: bad
+✖   subject may not be "bad" [custom-rule]
+
+✖   found 1 problems, 0 warnings`);
+
+      expect(err.exitCode).to.equal(1);
+    });
+
+    it('succeeds when the custom rule passes', async function() {
+      await execa('git', ['branch', 'foo'], { cwd: tmpPath });
+      await execa('git', ['checkout', 'foo'], { cwd: tmpPath });
+      await execa('git', ['commit', '--allow-empty', '-m', 'chore: good'], { cwd: tmpPath });
+
+      let { stdout } = await execa(bin, { cwd: tmpPath });
+
+      expect(stdout).to.equal(`⧗   input: chore: good
+✔   found 0 problems, 0 warnings`);
+    });
+  });
 });
