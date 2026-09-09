@@ -23,9 +23,9 @@ async function runCommitLint(commit, { shouldLintEveryCommit }) {
   const { default: read } = await import('@commitlint/read');
   const { default: lint } = await import('@commitlint/lint');
 
-  let { rules, parserPreset } = await load();
+  let { rules, parserPreset, plugins } = await load();
 
-  let opts = parserPreset ? { parserOpts: parserPreset.parserOpts } : {};
+  let opts = parserPreset ? { parserOpts: parserPreset.parserOpts, plugins } : { plugins };
 
   let messages = await read({ from: commit });
 
